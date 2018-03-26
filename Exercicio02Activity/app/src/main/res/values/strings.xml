@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exercicio-02-Activity</string>
+    <string name="soma">Soma</string>
+    <string name="numero_1">numero 1</string>
+    <string name="numero_2">numero 2</string>
+    <string name="multiplica">multiplica</string>
+</resources>
