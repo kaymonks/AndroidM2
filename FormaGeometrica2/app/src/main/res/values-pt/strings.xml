@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Forma Geometrica</string>
+    <string name="area">Area</string>
+    <string name="base">Base</string>
+    <string name="calculate">Calcular</string>
+    <string name="radius">Raio</string>
+    <string name="height">Altura</string>
+    <string name="rectangle">Retângulo</string>
+    <string name="triangle">Triângulo</string>
+    <string name="circle">Círculo</string>
+    <string name="shape_image">Forma da Imagem</string>
+</resources>
