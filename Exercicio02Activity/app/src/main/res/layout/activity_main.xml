@@ -55,4 +55,24 @@
         app:layout_constraintTop_toBottomOf="@+id/et_numero_2"
         android:layout_marginLeft="16dp" />
 
+    <Button
+        android:id="@+id/bt_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Divide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_soma" />
+
+    <Button
+        android:id="@+id/bt_subtrai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Subtrai"
+        app:layout_constraintStart_toEndOf="@+id/bt_divide"
+        app:layout_constraintTop_toBottomOf="@+id/bt_multiplica" />
+
 </android.support.constraint.ConstraintLayout>
