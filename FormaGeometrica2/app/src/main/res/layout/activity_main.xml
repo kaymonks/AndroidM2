@@ -5,13 +5,13 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10pt"
+    android:layout_margin="10pt"
     tools:context="com.example.kaymo.formageometrica.MainActivity">
 
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:text="@string/geometric_form"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,93 +64,16 @@
             tools:layout_conversion_absoluteWidth="169dp" />
     </RadioGroup>
 
-
-    <TextView
-        android:id="@+id/tv_base"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/base"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/et_base"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_base"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tv_altura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/height"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_base" />
-
-    <EditText
-        android:id="@+id/et_altura"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_altura" />
-
-    <TextView
-        android:id="@+id/tv_raio"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:text="@string/radius"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_altura" />
-
-    <EditText
-        android:id="@+id/et_raio"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_raio" />
-
     <Button
-        android:id="@+id/bt_calcular"
+        android:id="@+id/bt_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/calculate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_forma" />
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/area"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_raio" />
-
-    <ImageView
-        android:id="@+id/iv_forma"
-        android:layout_width="51dp"
-        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result"
-        android:visibility="invisible"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:contentDescription="@string/shape_image" />
+        android:onClick="onClickGetOption"/>
 
 
 </android.support.constraint.ConstraintLayout>

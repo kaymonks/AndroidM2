@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ResultadoActivity"
+            android:label="@string/title_activity_resultado"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".OptionActivity"></activity>
     </application>
 
 </manifest>

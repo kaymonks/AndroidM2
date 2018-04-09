@@ -11,4 +11,6 @@
     <string name="triangle">Triangle</string>
     <string name="circle">Circle</string>
     <string name="shape_image">Shape Image</string>
+    <string name="next">Next</string>
+    <string name="title_activity_resultado">ResultadoActivity</string>
 </resources>
