@@ -13,9 +13,6 @@ public class Pessoa {
     private String rg;
     private String cidade;
     private char sexo;
-    static ArrayList<Pessoa> retorno = new ArrayList<>();
-
-
 
     public Pessoa(String nome, int idade, String rg, String cidade, char sexo) {
         this.nome = nome;
@@ -23,24 +20,6 @@ public class Pessoa {
         this.rg = rg;
         this.cidade = cidade;
         this.sexo = sexo;
-    }
-
-    public static ArrayList<Pessoa> getLista() {
-
-        return retorno;
-    }
-
-    public ArrayList<Pessoa> setlista(Pessoa pessoa) {
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        retorno.add(pessoa);
-        //Add a mesma pessoa p/ nao cadastrar varias vezes
-        return retorno;
     }
 
     public String getNome() {

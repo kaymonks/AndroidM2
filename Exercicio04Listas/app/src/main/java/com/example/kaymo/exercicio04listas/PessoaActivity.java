@@ -21,7 +21,6 @@ public class PessoaActivity extends AppCompatActivity {
     EditText etIdade;
     EditText etRg;
     EditText etCidade;
-    static ArrayList<Pessoa> retorno = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +72,9 @@ public class PessoaActivity extends AppCompatActivity {
 
         Pessoa pessoa = new Pessoa(nome, idade, rg, cidade, sexo);
 
-        pessoa.setlista(pessoa);
+        PessoaDao pessoa2 = new PessoaDao();
+
+        pessoa2.setLista(pessoa);
 
         Intent intencao = new Intent(this, MainActivity.class);
         startActivity(intencao);

@@ -8,19 +8,17 @@ import java.util.ArrayList;
 
 public class PessoaDao {
 
-    ArrayList<Pessoa> retorno = new ArrayList<>();
-    public ArrayList<Pessoa> getLista() {
+    static ArrayList<Pessoa> retorno = new ArrayList<>();
 
-        return this.retorno;
+    public static ArrayList<Pessoa> getLista() {
 
-
+        return retorno;
     }
 
     public  ArrayList<Pessoa> setLista(Pessoa pessoa) {
+        retorno.add(pessoa);
 
-
-        this.retorno.add(pessoa);
-        return this.retorno ;
+        return retorno ;
     }
 
 }
