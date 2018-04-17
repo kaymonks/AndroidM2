@@ -17,12 +17,11 @@ import java.util.ArrayList;
 
 public class PessoaActivity extends AppCompatActivity {
 
-
-
     EditText etNome;
     EditText etIdade;
     EditText etRg;
     EditText etCidade;
+    static ArrayList<Pessoa> retorno = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,15 +74,6 @@ public class PessoaActivity extends AppCompatActivity {
         Pessoa pessoa = new Pessoa(nome, idade, rg, cidade, sexo);
 
         pessoa.setlista(pessoa);
-
-        ArrayList<Pessoa> lista;
-        lista = Pessoa.getLista();
-        String nome2 = "";
-        String idade2 = "";
-        for (int x = 0; x<lista.size(); x++) {
-            nome2 = nome2 + "\n" + lista.get(x).getNome();
-            idade2 = idade2 + "\n" + lista.get(x).getIdade();
-        }
 
         Intent intencao = new Intent(this, MainActivity.class);
         startActivity(intencao);
