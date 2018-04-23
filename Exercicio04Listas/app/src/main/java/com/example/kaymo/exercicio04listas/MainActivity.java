@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView rvLista = findViewById(R.id.rvLista);
 
-        PessoaAdapter adaptador = new PessoaAdapter(Pessoa.getLista());
+        PessoaAdapter adaptador = new PessoaAdapter(PessoaDao.getLista());
         rvLista.setAdapter(adaptador);
 
         rvLista.setLayoutManager(new LinearLayoutManager(this));

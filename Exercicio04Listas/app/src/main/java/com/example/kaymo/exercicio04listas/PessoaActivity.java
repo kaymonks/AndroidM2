@@ -72,16 +72,9 @@ public class PessoaActivity extends AppCompatActivity {
 
         Pessoa pessoa = new Pessoa(nome, idade, rg, cidade, sexo);
 
-        pessoa.setlista(pessoa);
+        PessoaDao pessoa2 = new PessoaDao();
 
-        ArrayList<Pessoa> lista;
-        lista = Pessoa.getLista();
-        String nome2 = "";
-        String idade2 = "";
-        for (int x = 0; x<lista.size(); x++) {
-            nome2 = nome2 + "\n" + lista.get(x).getNome();
-            idade2 = idade2 + "\n" + lista.get(x).getIdade();
-        }
+        pessoa2.setLista(pessoa);
 
         Intent intencao = new Intent(this, MainActivity.class);
         startActivity(intencao);
