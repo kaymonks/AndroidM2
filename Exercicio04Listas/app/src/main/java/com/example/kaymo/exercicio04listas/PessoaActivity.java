@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 public class PessoaActivity extends AppCompatActivity {
 
-
-
     EditText etNome;
     EditText etIdade;
     EditText etRg;
