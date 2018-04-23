@@ -21,8 +21,10 @@ public class OptionActivity extends AppCompatActivity {
     private EditText et_base;
     private EditText et_altura;
     private EditText et_raio;
+    private TextView tv_raio;
+    private TextView tv_base;
+    private TextView tv_altura;
     private ImageView imagemForma;
-    private FormaGeometrica objetoFormaGeometrica;
     private String tipoForma;
 
     @Override
@@ -30,12 +32,30 @@ public class OptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option);
 
-        objetoFormaGeometrica = (FormaGeometrica) getIntent().getParcelableExtra("extraObj");
         et_raio = (EditText) findViewById(R.id.et_raio);
+        tv_raio = (TextView) findViewById(R.id.tv_raio);
         et_base = (EditText) findViewById(R.id.et_base);
+        tv_base = (TextView) findViewById(R.id.tv_base);
         et_altura = (EditText) findViewById(R.id.et_altura);
-
+        tv_altura = (TextView) findViewById(R.id.tv_altura);
         this.tipoForma = getIntent().getStringExtra("tipo");
+
+        switch (tipoForma) {
+            case "quadrado":
+                et_raio.setVisibility(View.GONE);
+                tv_raio.setVisibility(View.GONE);
+                break;
+            case "triangulo":
+                et_raio.setVisibility(View.GONE);
+                tv_raio.setVisibility(View.GONE);
+                break;
+            case "circulo":
+                et_base.setVisibility(View.GONE);
+                tv_base.setVisibility(View.GONE);
+                et_altura.setVisibility(View.GONE);
+                tv_altura.setVisibility(View.GONE);
+                break;
+        }
     }
 
     public void onClickAvancar(View view) {
@@ -62,6 +82,7 @@ public class OptionActivity extends AppCompatActivity {
                 if (et_altura.getText().toString() == "" || et_base.getText().toString() == "") {
                     Toast.makeText(this, "Preencha o campo altura e base", Toast.LENGTH_LONG).show();
                 }
+                et_raio.setVisibility(View.GONE);
                 base = Double.parseDouble(et_base.getText().toString());
                 altura = Double.parseDouble(et_altura.getText().toString());
                 formaGeometrica.setAltura(altura);
@@ -72,6 +93,9 @@ public class OptionActivity extends AppCompatActivity {
                 if (et_raio.getText().toString() == ""){
                     Toast.makeText(this, "Preencha o campo circulo", Toast.LENGTH_LONG).show();
                 }
+                et_base.setVisibility(View.GONE);
+                et_altura.setVisibility(View.GONE);
+                et_altura.setVisibility(View.GONE);
                 double raio = Double.parseDouble(et_raio.getText().toString());
                 formaGeometrica.setRaio(raio);
                 res = formaGeometrica.calculaRaio();
