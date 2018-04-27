@@ -2,6 +2,7 @@ package com.example.kaymo.atividadesm1;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -10,19 +11,22 @@ import android.widget.TextView;
 
 public class ReclamacaoHolder extends RecyclerView.ViewHolder {
 
-    private TextView tvTitulo;
+    private ImageView ivCategoria;
     private TextView tvDescricao;
+    private TextView tvCategoria;
+//    RelativeLayout parentLayout;
 
     public ReclamacaoHolder(View itemView) {
         super(itemView);
-
-        tvTitulo = itemView.findViewById(R.id.tvTitulo);
+        tvCategoria = itemView.findViewById(R.id.tvCategoria);
         tvDescricao = itemView.findViewById(R.id.tvDescricao);
     }
 
+
     public void exibeReclamacao(Reclamação daVez) {
-        tvTitulo.setText(daVez.getTitulo());
+//        tvCategoria.setText(daVez.getCategoria());
         tvDescricao.setText(daVez.getDescricao());
     }
+
 
 }

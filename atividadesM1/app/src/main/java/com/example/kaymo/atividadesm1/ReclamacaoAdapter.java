@@ -1,5 +1,7 @@
 package com.example.kaymo.atividadesm1;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,9 +17,11 @@ import java.util.ArrayList;
 public class ReclamacaoAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Reclamação> listaReclamacao;
+    private Context context;
 
-    public ReclamacaoAdapter(ArrayList<Reclamação> listaReclamacao) {
+    public ReclamacaoAdapter(Context context, ArrayList<Reclamação> listaReclamacao) {
         this.listaReclamacao = listaReclamacao;
+        this.context = context;
     }
 
     @Override
@@ -29,11 +33,23 @@ public class ReclamacaoAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         Log.d("RV", "Gaveta Atualizada"+position);
-        ReclamacaoHolder gaveta = (ReclamacaoHolder) holder;
-        Reclamação daVez = this.listaReclamacao.get(position);
+        final ReclamacaoHolder gaveta = (ReclamacaoHolder) holder;
+        final Reclamação daVez = this.listaReclamacao.get(position);
         gaveta.exibeReclamacao(daVez);
+
+        gaveta.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(context, "posição: "+position +daVez.getCategoria(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, DetalhesActivity.class);
+                intent.putExtra("descricao", daVez.getDescricao());
+                intent.putExtra("categoria", daVez.getCategoria());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

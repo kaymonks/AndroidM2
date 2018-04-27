@@ -6,24 +6,20 @@ package com.example.kaymo.atividadesm1;
 
 public class Reclamação {
 
-    private String titulo;
+    private String categoria;
     private String descricao;
-    private String data;
-    private String resolvido;
 
-    public Reclamação(String titulo, String descricao, String data, String resolvido) {
-        this.titulo = titulo;
+    public Reclamação(String categoria, String descricao) {
+        this.categoria = categoria;
         this.descricao = descricao;
-        this.data = data;
-        this.resolvido = resolvido;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitulo(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getDescricao() {
@@ -34,19 +30,4 @@ public class Reclamação {
         this.descricao = descricao;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String isResolvido() {
-        return resolvido;
-    }
-
-    public void setResolvido(String resolvido) {
-        this.resolvido = resolvido;
-    }
 }

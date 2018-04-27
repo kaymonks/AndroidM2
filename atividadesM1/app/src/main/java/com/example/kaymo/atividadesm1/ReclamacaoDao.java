@@ -23,7 +23,7 @@ public class ReclamacaoDao {
         FileOutputStream outputStream;
         try {
             outputStream = context.openFileOutput(FILE_NAME, Context.MODE_APPEND);
-            String line = reclamação.getTitulo() + ";" + reclamação.getDescricao() + ";" + reclamação.getData();
+            String line = reclamação.getCategoria() + ";" + reclamação.getDescricao() + ";";
             outputStream.write((line + System.getProperty("line.separator")).getBytes());
             outputStream.close();
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class ReclamacaoDao {
             String[] lineSep;
             while ((line = bufferedReader.readLine()) != null) {
                 lineSep = line.split(";");
-                bd.add(new Reclamação(lineSep[0], lineSep[1], lineSep[2], lineSep[3]));
+                bd.add(new Reclamação(lineSep[0], lineSep[1]));
             }
         } catch (Exception e) {
             e.printStackTrace();

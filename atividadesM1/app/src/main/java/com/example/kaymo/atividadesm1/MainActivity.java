@@ -11,7 +11,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int ADICIONAR_VEICULO_CODE = 1;
+    private final int ADICIONAR_RECLAMACAO_CODE = 1;
 
     ReclamacaoAdapter adaptador;
 
@@ -20,11 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ReclamacaoDao.getLista();
-
         RecyclerView rvLista = findViewById(R.id.rvLista);
 
-        adaptador = new ReclamacaoAdapter(ReclamacaoDao.getLista(this));
+        adaptador = new ReclamacaoAdapter(MainActivity.this, ReclamacaoDao.getLista(this));
 
         rvLista.setAdapter(adaptador);
 
@@ -36,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickAddReclamacao(View view) {
         Intent intencao = new Intent(this, ReclamacaoActivity.class);
-        startActivity(intencao);
+        startActivityForResult(intencao, 1);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADICIONAR_VEICULO_CODE){
+        if (requestCode == ADICIONAR_RECLAMACAO_CODE){
             if (resultCode == Activity.RESULT_OK){
                 adaptador.notifyDataSetChanged();
             }
