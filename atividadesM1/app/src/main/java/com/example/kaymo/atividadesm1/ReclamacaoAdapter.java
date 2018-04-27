@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static android.support.constraint.Constraints.TAG;
 
 /**
  * Created by kaymo on 23/04/2018.
@@ -37,16 +40,19 @@ public class ReclamacaoAdapter extends RecyclerView.Adapter {
         Log.d("RV", "Gaveta Atualizada"+position);
         final ReclamacaoHolder gaveta = (ReclamacaoHolder) holder;
         final Reclamação daVez = this.listaReclamacao.get(position);
+
         gaveta.exibeReclamacao(daVez);
-
+//        Toast.makeText(context, "imagem: "+daVez.getCategoria(), Toast.LENGTH_LONG).show();
+//        Log.d("RV", "imagem: "+daVez.getCategoria());
         gaveta.itemView.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-//                Toast.makeText(context, "posição: "+position +daVez.getCategoria(), Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(context, DetalhesActivity.class);
                 intent.putExtra("descricao", daVez.getDescricao());
                 intent.putExtra("categoria", daVez.getCategoria());
+                intent.putExtra("posicao", position);
+
                 context.startActivity(intent);
             }
         });
