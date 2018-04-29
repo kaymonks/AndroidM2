@@ -15,8 +15,8 @@ public class ReclamacaoActivity extends AppCompatActivity {
 
     RadioGroup categoriaGroup;
     RadioButton button;
-    String categoria;
-    String imagemCategoria;
+    String categoria, imagemCategoria;
+    String descricao;
     Button salvar;
     int checkedRadioButtonId;
     private ReclamacaoDAO bd;
@@ -27,39 +27,35 @@ public class ReclamacaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reclamacao);
 
+
         salvar = findViewById(R.id.btSalvar);
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bd = new ReclamacaoDAO(getBaseContext());
+                final EditText etDescricao = findViewById(R.id.etDescricao);
+
                 categoriaGroup = ( RadioGroup ) findViewById(R.id.rgCategoria);
                 checkedRadioButtonId = categoriaGroup.getCheckedRadioButtonId();
-                button = categoriaGroup.findViewById(checkedRadioButtonId);
-                EditText etDescricao = findViewById(R.id.etDescricao);
 
-                categoria = (String) button.getText();
+                if (checkedRadioButtonId == -1) {
+                    Toast.makeText(getBaseContext(), "Escolha uma categoria", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 if (etDescricao.getText().toString().equals("")) {
                     Toast.makeText(getBaseContext(), "Descrição obrigatório", Toast.LENGTH_LONG).show();
                     return;
                 }
-                final String descricao = etDescricao.getText().toString();
 
-                if (button.getText().toString().equals("Infraestrutura")) {
-                    imagemCategoria = "infraestrutura";
-                }else if (button.getText().toString().equals("Trânsito")) {
-                    imagemCategoria = "transito";
-                } else if (button.getText().toString().equals("Segurança")) {
-                    imagemCategoria = "seguranca";
-                } else {
-                    imagemCategoria = "outro";
-                }
+                button = categoriaGroup.findViewById(checkedRadioButtonId);
+                categoria = (String) button.getText();
+                descricao = etDescricao.getText().toString();
 
                 Reclamacao reclamacao = new Reclamacao();
                 reclamacao.setCategoria(categoria);
                 reclamacao.setDescricao(descricao);
                 bd.addReclamacao(reclamacao);
-
-//                Toast.makeText(getBaseContext(), "Reclamção salvo com sucesso", Toast.LENGTH_SHORT).show();
 
                 sair();
             }
