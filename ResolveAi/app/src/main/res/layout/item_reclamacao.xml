@@ -19,7 +19,7 @@
         android:maxLength="35"
         android:text="Lorem ipsum"
         android:textColor="#000"
-        android:textSize="25dp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivCategoria"
         app:layout_constraintTop_toTopOf="parent"

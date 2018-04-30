@@ -65,7 +65,7 @@ public class DetalhesActivity extends AppCompatActivity {
 
             reclamacaoDAO.updateReclamacao(reclamacao);
 
-            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+            Intent intent = new Intent(getBaseContext(), ReclamacoesActivity.class);
             startActivity(intent);
 
             }
@@ -85,7 +85,7 @@ public class DetalhesActivity extends AppCompatActivity {
                 Log.d(String.valueOf(this), "onCreate2: "+reclamacao.getNaoCurtir());
                 reclamacaoDAO.updateReclamacao(reclamacao);
 
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent intent = new Intent(getBaseContext(), ReclamacoesActivity.class);
                 startActivity(intent);
 
             }

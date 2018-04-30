@@ -12,24 +12,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int ADICIONAR_RECLAMACAO_CODE = 1;
-    ReclamacaoAdapter adaptador;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RecyclerView rvLista = findViewById(R.id.rvLista);
-        ReclamacaoDAO reclamacaoDAO = new ReclamacaoDAO(this);
-
-
-        adaptador = new ReclamacaoAdapter (MainActivity.this, reclamacaoDAO.getAllReclamacao());
-        rvLista.setAdapter(adaptador);
-
-        rvLista.addItemDecoration(new DividerItemDecoration(this, RecyclerView.VERTICAL));
-
-        rvLista.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
@@ -38,12 +24,8 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intencao, 1);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADICIONAR_RECLAMACAO_CODE){
-            if (resultCode == Activity.RESULT_OK){
-                adaptador.notifyDataSetChanged();
-            }
-        }
+    public void onClickReclamacoes(View view) {
+        Intent intencao = new Intent(this, ReclamacoesActivity.class);
+        startActivityForResult(intencao, 1);
     }
 }

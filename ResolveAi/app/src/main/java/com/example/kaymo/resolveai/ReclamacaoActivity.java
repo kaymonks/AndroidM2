@@ -64,7 +64,7 @@ public class ReclamacaoActivity extends AppCompatActivity {
     }
 
     public void sair() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ReclamacoesActivity.class);
         this.startActivity(intent);
     }
 }
