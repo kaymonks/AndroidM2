@@ -32,7 +32,7 @@ class ReclamacaoAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         final ReclamacaoHolder gaveta = (ReclamacaoHolder) holder;
         final Reclamacao daVez = this.listaReclamacao.get(position);
         gaveta.exibeReclamacao(daVez);
@@ -42,6 +42,7 @@ class ReclamacaoAdapter extends RecyclerView.Adapter {
 
                 Intent intent = new Intent(context, DetalhesActivity.class);
                 intent.putExtra("id", daVez.getId());
+                intent.putExtra("icon", gaveta.tvIcon.getText().toString());
                 intent.putExtra("descricao", daVez.getDescricao());
                 intent.putExtra("categoria", daVez.getCategoria());
                 intent.putExtra("curtir", daVez.getCurtir());

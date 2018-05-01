@@ -1,5 +1,6 @@
 package com.example.kaymo.resolveai;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -13,13 +14,14 @@ import android.widget.Toast;
 
 public class DetalhesActivity extends AppCompatActivity {
 
-    String categoria, descricao;
+    String categoria, descricao, icon;
     TextView tvDescricao, tvCategoria, tvCurtidas, tvNaoCurtidas;
-    ImageView ivCategoria;
+    TextView tvIcon;
 
     FloatingActionButton  btCurtir, btNaoCurtir;
     int id, qtdCurtir, qtdNaoCurtir;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,27 +29,18 @@ public class DetalhesActivity extends AppCompatActivity {
 
         tvCategoria = findViewById(R.id.tvCategoria);
         tvDescricao = findViewById(R.id.tvDescricao);
-        ivCategoria = findViewById(R.id.ivCategoria);
+        tvIcon = findViewById(R.id.tvIcon);
         btCurtir = findViewById(R.id.btCurtir);
         btNaoCurtir = findViewById(R.id.btNaoCurtir);
 
+        icon = getIntent().getExtras().getString("icon");
         categoria = getIntent().getExtras().getString("categoria");
         descricao = getIntent().getExtras().getString("descricao");
         id = getIntent().getExtras().getInt("id", -1);
         qtdCurtir = getIntent().getExtras().getInt("curtir", -1);
         qtdNaoCurtir = getIntent().getExtras().getInt("naoCurtir", -1);
 
-        Log.d(String.valueOf(this), "onCreate: "+"curtir "+qtdCurtir+" Naocurtir "+qtdNaoCurtir);
-        if (categoria.equals("Infraestrutura")) {
-            ivCategoria.setImageResource(R.drawable.ic_location_city_black_24dp);
-        } else if (categoria.equals("Trânsito")) {
-            ivCategoria.setImageResource(R.drawable.ic_traffic_black_24dp);
-        }else if (categoria.equals("Segurança")) {
-            ivCategoria.setImageResource(R.drawable.ic_accessibility_black_24dp);
-        }else if (categoria.equals("Outro")){
-            ivCategoria.setImageResource(R.drawable.ic_info_black_24dp);
-        }
-
+        tvIcon.setText(icon);
         tvCategoria.setText(categoria);
         tvDescricao.setText(descricao);
 
