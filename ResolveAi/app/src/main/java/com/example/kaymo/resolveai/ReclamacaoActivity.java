@@ -32,7 +32,6 @@ public class ReclamacaoActivity extends AppCompatActivity {
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bd = new ReclamacaoDAO(getBaseContext());
                 final EditText etDescricao = findViewById(R.id.etDescricao);
 
                 categoriaGroup = ( RadioGroup ) findViewById(R.id.rgCategoria);
@@ -55,7 +54,7 @@ public class ReclamacaoActivity extends AppCompatActivity {
                 Reclamacao reclamacao = new Reclamacao();
                 reclamacao.setCategoria(categoria);
                 reclamacao.setDescricao(descricao);
-                bd.addReclamacao(reclamacao);
+                reclamacao.save();
 
                 sair();
             }

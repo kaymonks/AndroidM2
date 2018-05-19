@@ -1,12 +1,14 @@
 package com.example.kaymo.resolveai;
 
+import com.orm.SugarRecord;
+
 import java.util.ArrayList;
 
 /**
  * Created by kaymo on 28/04/2018.
  */
 
-public class Reclamacao extends ArrayList<Reclamacao> {
+public class Reclamacao extends SugarRecord {
     private int id;
     private String categoria;
     private String descricao;
@@ -64,10 +66,10 @@ public class Reclamacao extends ArrayList<Reclamacao> {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public int getId() {
-        return id;
-    }
+//
+//    public int getId() {
+//        return id;
+//    }
 
     public void setId(int id) {
         this.id = id;

@@ -48,15 +48,14 @@ public class DetalhesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             qtdCurtir += 1;
+//            Reclamacao reclamacao.findById(Reclamacao.class, id);
             Reclamacao reclamacao = new Reclamacao();
-            ReclamacaoDAO reclamacaoDAO = new ReclamacaoDAO(getBaseContext());
-            reclamacao.setId(id);
+
             reclamacao.setCategoria(categoria);
             reclamacao.setDescricao(descricao);
             reclamacao.setCurtir(qtdCurtir);
             reclamacao.setNaoCurtir(qtdNaoCurtir);
-
-            reclamacaoDAO.updateReclamacao(reclamacao);
+            reclamacao.save();
 
             Intent intent = new Intent(getBaseContext(), ReclamacoesActivity.class);
             startActivity(intent);
@@ -68,19 +67,16 @@ public class DetalhesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 qtdNaoCurtir += 1;
-                Reclamacao reclamacao = new Reclamacao();
-                ReclamacaoDAO reclamacaoDAO = new ReclamacaoDAO(getBaseContext());
-                reclamacao.setId(id);
+                Reclamacao reclamacao = Reclamacao.findById(Reclamacao.class, (long) id);
                 reclamacao.setCategoria(categoria);
                 reclamacao.setDescricao(descricao);
                 reclamacao.setCurtir(qtdCurtir);
                 reclamacao.setNaoCurtir(qtdNaoCurtir);
                 Log.d(String.valueOf(this), "onCreate2: "+reclamacao.getNaoCurtir());
-                reclamacaoDAO.updateReclamacao(reclamacao);
+                reclamacao.save();
 
                 Intent intent = new Intent(getBaseContext(), ReclamacoesActivity.class);
                 startActivity(intent);
-
             }
         });
 

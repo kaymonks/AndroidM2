@@ -10,16 +10,17 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kaymo on 28/04/2018.
  */
 
 class ReclamacaoAdapter extends RecyclerView.Adapter {
-    private ArrayList<Reclamacao> listaReclamacao;
+    private List<Reclamacao> listaReclamacao;
     private Context context;
 
-    public ReclamacaoAdapter(Context context, ArrayList<Reclamacao> listaReclamacao) {
+    public ReclamacaoAdapter(Context context, List<Reclamacao> listaReclamacao) {
         this.listaReclamacao = listaReclamacao;
         this.context = context;
     }
